@@ -1,4 +1,4 @@
-package org.iesgrancapitan.PROGR.ejercicios.ej04poo;
+package org.iesgrancapitan.PROGR.ejercicios.ej04poo.t1e4dice;
 
 public class TestDice {
 
