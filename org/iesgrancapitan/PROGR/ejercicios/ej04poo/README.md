@@ -1,6 +1,4 @@
-# Ejercicios
-
-## Tanda 1
+## Ejercicios tanda 1
 
 1. Crea una clase "Dado" que simule el funcionamiento de un dado con caras del 1 al 6 que tienen la misma probabilidad de salir y un programa de prueba.
 
@@ -10,7 +8,7 @@
 
 4. Implementar otra clase Dado (esta vez lo haremos en inglés, la llamaremos Dice). Por defecto el dado tendrá 6 caras. Tendremos tres constructores (uno al que no se le pasa nada e inicializa el dado al azar, otro al que sólo se le pasa que número tiene el dado en la cara superior y otro con el número del dado en la cara superior y el número de caras del dado). Implementa los getters, el método roll() que tirará el dado al azar y el toString(). Implementa un tester que tenga un vector de 4 dados y los lance una serie de veces.
 
-## Tanda 2
+## Ejercicios tanda 2
 
 Estas clases deben testearse usando JUnit, además, si es oportuno, deben implementar equals() y las interfaces Comparable y Cloneable.
 
@@ -25,10 +23,10 @@ Estas clases deben testearse usando JUnit, además, si es oportuno, deben implem
 
     * IntArrayList(): crea una lista vacía (internamente un array de 10 enteros).
     * IntArrayList(ele1, ..., eleN): crea una lista con los elementos ele1 ... eleN.
-    * IntArrayList(int[] elementos): crea una lista con los elementos del array.
     * add(elemento): añade "elemento" al final de la lista. 
     * add(índice, elemento): añade "elemento" en la posición "índice" de la lista.
     * remove(índice): borra el elemento de la lista que está en la posición "índice" y devuelve el elemento borrado.
+    * removeInt(elemento): borra "elemento" de la lista y devuelve si ha habido éxito o no en la operación.
     * size(): devuelve el número de elementos que hay en la lista.
     * clear(): vacía la lista.
     * isEmpty(): dice si la lista está vacía.

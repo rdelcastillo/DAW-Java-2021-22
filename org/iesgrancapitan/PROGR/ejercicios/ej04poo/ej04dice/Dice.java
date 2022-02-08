@@ -1,4 +1,4 @@
-package org.iesgrancapitan.PROGR.ejercicios.ej04poo.t1e4dice;
+package org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej04dice;
 
 /**
  * Simula el comportamiento de un dado. Por defecto el dado tendrá 6 caras. 

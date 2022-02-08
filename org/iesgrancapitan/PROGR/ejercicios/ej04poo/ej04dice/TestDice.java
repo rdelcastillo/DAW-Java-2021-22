@@ -1,4 +1,12 @@
-package org.iesgrancapitan.PROGR.ejercicios.ej04poo.t1e4dice;
+package org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej04dice;
+
+/**
+ * Prueba de la clase Dice con un vector de 4 dados que se lanzan 
+ * una serie de veces.
+ * 
+ * @author Rafael del Castillo Gomariz
+ *
+ */
 
 public class TestDice {
 
