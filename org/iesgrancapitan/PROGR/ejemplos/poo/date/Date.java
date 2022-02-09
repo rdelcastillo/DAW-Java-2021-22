@@ -9,7 +9,7 @@ package org.iesgrancapitan.PROGR.ejemplos.poo.date;
  *
  */
 
-public class Date implements Comparable<Date> {
+public class Date implements Cloneable, Comparable<Date> {
   
   private static final int DAYS_WEEK = 7;
   
@@ -177,5 +177,9 @@ public class Date implements Comparable<Date> {
     return date1-date2;
   }
   
+  @Override
+  public Date clone() {
+    return new Date(day, month, year);
+  }
  
 }
