@@ -1,5 +1,19 @@
 package org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej05fraction;
 
+/**
+ * Clase "Fracción" inmutable que permite hacer las siguientes operaciones:
+ * 
+ * - Construir un objeto Fracción pasándole al constructor el numerador y el denominador. 
+ *   La fracción se construye simplificada, no se puede dividir por cero.
+ *   
+ * - Obtener resultado de la fracción (número real).
+ * - Multiplicar la fracción por un número (el método devuelve otra fracción, simplificada).
+ * - Multiplicar, dividir, sumar y restar fracciones (los métodos devuelven otra fracción, simplificada).
+ * 
+ * @author Rafael del Castillo Gomariz
+ *
+ */
+
 public class Fraction implements Comparable<Fraction>, Cloneable {
     
   private int numerator;
