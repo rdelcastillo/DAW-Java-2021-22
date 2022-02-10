@@ -26,7 +26,7 @@ Estas clases deben testearse usando JUnit, además, si es oportuno, deben implem
     * add(elemento): añade "elemento" al final de la lista. 
     * add(índice, elemento): añade "elemento" en la posición "índice" de la lista.
     * remove(índice): borra el elemento de la lista que está en la posición "índice" y devuelve el elemento borrado.
-    * removeInt(elemento): borra "elemento" de la lista y devuelve si ha habido éxito o no en la operación.
+    * removeInt(elemento): borra la 1ª ocurrencia de "elemento" de la lista y devuelve si ha habido éxito o no en la operación.
     * size(): devuelve el número de elementos que hay en la lista.
     * clear(): vacía la lista.
     * isEmpty(): dice si la lista está vacía.
