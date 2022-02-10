@@ -26,6 +26,7 @@ public class DateTest {
     System.out.println("La fecha resultante es " + date1);
     
     Date date2 = readDate("\nIntroduce otra fecha para compararla con " + date1 + ".");
+    System.out.println(date1 + " es " + (date1.equals(date2) ? "IGUAL":"DISTINTA") + " a " + date2);
     System.out.println(date1 + " es " + comparisonResult(date1, date2) + " a " + date2);
     
     in.close();

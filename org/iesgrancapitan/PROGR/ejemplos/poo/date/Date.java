@@ -140,6 +140,16 @@ public class Date implements Cloneable, Comparable<Date> {
   }
 
   @Override
+  public int compareTo(Date date) {
+    // convertimos las fechas a datos númericos aaaammdd y devolvemos su resta
+    // este método devuelve <0 si la fecha almacenada es anterior a la enviada
+    // 0 si son iguales y >0 en caso contrario.
+    int date1 = this.year*10000 + this.month*100 + this.day;
+    int date2 = date.year*10000 + date.month*100 + date.day;
+    return date1-date2;
+  }
+  
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -168,18 +178,9 @@ public class Date implements Cloneable, Comparable<Date> {
   }
 
   @Override
-  public int compareTo(Date date) {
-    // convertimos las fechas a datos númericos aaaammdd y devolvemos su resta
-    // este método devuelve <0 si la fecha almacenada es anterior a la enviada
-    // 0 si son iguales y >0 en caso contrario.
-    int date1 = this.year*10000 + this.month*100 + this.day;
-    int date2 = date.year*10000 + date.month*100 + date.day;
-    return date1-date2;
-  }
-  
-  @Override
   public Date clone() {
     return new Date(day, month, year);
   }
  
+  
 }
