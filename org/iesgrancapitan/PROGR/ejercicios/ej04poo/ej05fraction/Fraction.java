@@ -91,7 +91,11 @@ public class Fraction implements Comparable<Fraction>, Cloneable {
   }
   
   public Fraction multiply(Fraction other) {
-    return new Fraction(numerator * other.numerator, this.denominator * other.denominator);
+    return new Fraction(numerator * other.numerator, denominator * other.denominator);
+  }
+  
+  public Fraction divide(Fraction other) {
+    return new Fraction(numerator * other.denominator, denominator * other.numerator);
   }
   
   public Fraction add(Fraction other) {
