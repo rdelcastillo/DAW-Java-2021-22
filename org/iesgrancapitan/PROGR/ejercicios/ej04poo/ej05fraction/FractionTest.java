@@ -17,7 +17,8 @@ class FractionTest {
     Fraction f3 = new Fraction(2, 5);
     assertEquals("2/5", f3.toString());
     Fraction f4 = new Fraction(4, 10);  // fracción que debe simplicarse
-    assertEquals("2/5", f4.toString());
+    assertEquals(2, f4.getNumerator());
+    assertEquals(5, f4.getDenominator());
     // ¿lanza excepción con división por cero?
     assertThrows(ArithmeticException.class, () -> new Fraction(1, 0));
   }
@@ -49,7 +50,7 @@ class FractionTest {
   @Test
   void testClone() {
     Fraction f3 = f1.clone();
-    assertFalse(f1==f3);
+    assertFalse(f1 == f3);
     assertTrue(f1.equals(f3));
   }
 
@@ -57,6 +58,8 @@ class FractionTest {
   void testEqualsObject() {
     assertFalse(f1.equals(f2));
     assertTrue(f1.equals(new Fraction(1,2)));
+    assertTrue(f2.equals(new Fraction(4,6)));
+    assertTrue(f2.equals(f2));
   }
 
   @Test
