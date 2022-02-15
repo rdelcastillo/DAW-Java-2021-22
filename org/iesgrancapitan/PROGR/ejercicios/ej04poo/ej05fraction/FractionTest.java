@@ -2,8 +2,10 @@ package org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej05fraction;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("Tests de la clase Fraction")
 class FractionTest {
   
   Fraction f1 = new Fraction(1,2);
@@ -13,6 +15,7 @@ class FractionTest {
   static void setUpBeforeClass() throws Exception {}
 
   @Test
+  @DisplayName("testFraction simple y simplificable, excepción si denominador 0")
   void testFraction() {
     Fraction f3 = new Fraction(2, 5);
     assertEquals("2/5", f3.toString());
