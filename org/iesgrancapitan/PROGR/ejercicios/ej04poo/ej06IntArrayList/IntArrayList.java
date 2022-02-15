@@ -161,8 +161,8 @@ public class IntArrayList implements Cloneable {
    * @param index posición a partir de la cual hay que desplazar la lista.
    */  
   private void scrollListToLeftFrom(int index) {
-    for (int i = index; i < this.contentSize; i++) {
-      this.content[i-1] = this.content[i];
+    for (int i = index; i < contentSize; i++) {
+      content[i-1] = content[i];
     }
     contentSize--;
   }
@@ -242,7 +242,7 @@ public class IntArrayList implements Cloneable {
    * @throws IndexOutOfBoundsException
    */
   private void throwExceptionIfIndexOutOfBounds(int index) {
-    if (index < 0 || index >= size()) {
+    if (index < 0 || index >= contentSize) {
       throw new IndexOutOfBoundsException("Posición fuera de los límites de la lista.");
     }
   }

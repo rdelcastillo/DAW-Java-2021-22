@@ -55,8 +55,7 @@ class IntArrayListTest {
 
   @Test
   void testSet() {
-    int elementOld = list1To5.set(3, 100);
-    assertEquals(4, elementOld);
+    assertEquals(4, list1To5.set(3, 100));
     assertEquals(list1To5, new IntArrayList(1,2,3,100,5));
   }
 
