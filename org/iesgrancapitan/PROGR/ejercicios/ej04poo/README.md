@@ -42,17 +42,16 @@ Estas clases deben testearse usando JUnit, además, si es oportuno, deben implem
 
     * Crear la pila o la cola con o sin valores iniciales.
     * Obtener el número de elementos almacenados (tamaño).
-    * Saber si la pila o la cola está llena o vacía.
-    * Modificar la capacidad máxima de almacenamiento de la pila o la cola.
+    * Saber si la pila o la cola está vacía.
     * Vaciar completamente la pila o la cola.
     * Para el caso de la pila:
-    * Apilar (push): se añade un elemento a la pila. Se añade al principio de esta.
-    * Desapilar (pop): se saca (debe devolverse) un elemento de la pila y se elimina. 
-    * Leer el elemento superior de la pila sin retirarlo (top).
+        * Apilar (push): se añade un elemento a la pila. Se añade al principio de esta.
+        * Desapilar (pop): se saca (debe devolverse) un elemento de la pila y se elimina. 
+        * Leer el elemento superior de la pila sin retirarlo (top).
     * Para el caso de la cola:
-    * Encolar (push): se añade un elemento a la cola. Se añade al final de esta.
-    * Desencolar (pop): se saca (debe devolverse) y se elimina el elemento frontal de la cola, es decir, el primer elemento que entró.
-    * Leer el elemento frontal de la cola, es decir, el primer elemento que entró, sin retirarlo (front).
+        * Encolar (enqueue): se añade un elemento a la cola. Se añade al final de esta.
+        * Desencolar (dequeue): se saca (debe devolverse) y se elimina el elemento frontal de la cola, es decir, el primer elemento que entró.
+        * Leer el elemento frontal de la cola, es decir, el primer elemento que entró, sin retirarlo (front).
 
 8. Muestra un menú con las siguientes opciones:
 
