@@ -59,11 +59,6 @@ public class IntArrayList implements Cloneable {
   private int contentSize = 0;  // tamaño de la lista (nº de elementos almacenados)
 
   /**
-   * Crea una lista vacía.
-   */
-  public IntArrayList() {}  // permitimos constructor vacío pero no hay que hacer nada
-
-  /**
    * Crea una lista con los valores que llegan como parámetro.
    * @param content lista de enteros que conforman la lista.
    */
@@ -78,7 +73,9 @@ public class IntArrayList implements Cloneable {
    * @param element elemento a añadir
    */
   public void add(int element) {
-    expandListIfIsFull();
+    if (isFull()) {
+      expand();
+    }
     content[contentSize++] = element;
   }
   
@@ -99,22 +96,15 @@ public class IntArrayList implements Cloneable {
    * @param index posición a partir de la cual hay que desplazar la lista.
    */
   private void scrollListToRightFrom(int index) {
-    expandListIfIsFull();
+    if (isFull()) {
+      expand();
+    }
     for (int i = contentSize-1; i >= index; i--) {
       content[i+1] = content[i];
     }
     contentSize++;
   }
   
-  /**
-   * Amplía el tamaño del vector que almacena la lista si está llena. 
-   */
-  private void expandListIfIsFull() {
-    if (isFull()) {
-      expand();
-    }
-  }
-
   /**
    * Amplía el tamaño del vector que almacena la lista porque está llena. 
    */
@@ -233,7 +223,7 @@ public class IntArrayList implements Cloneable {
   public void sort() {
     int[] list = Arrays.copyOf(content, contentSize);
     Arrays.sort(list);
-    content = Arrays.copyOf(list, contentSize);
+    content = Arrays.copyOf(list, content.length);
   }
 
   /**
@@ -259,17 +249,17 @@ public class IntArrayList implements Cloneable {
   }
 
   @Override
-  public int hashCode() {   // ha sido necesario modificar lo generado por eclipse
-    int[] list = Arrays.copyOf(content, contentSize);
+  public int hashCode() { // ha sido necesario modificar lo generado por eclipse
     final int prime = 31;
     int result = 1;
+    int[] list = Arrays.copyOf(content, contentSize);
     result = prime * result + Arrays.hashCode(list);
     result = prime * result + contentSize;
     return result;
   }
 
   @Override
-  public boolean equals(Object obj) { // ha sido necesario modificar lo generado por eclipse
+  public boolean equals(Object obj) {
     if (this == obj)
       return true;
     if (obj == null)

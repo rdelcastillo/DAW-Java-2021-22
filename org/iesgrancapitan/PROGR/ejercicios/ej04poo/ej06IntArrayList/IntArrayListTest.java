@@ -40,10 +40,10 @@ class IntArrayListTest {
   void testAddIntInt() {
     list1To5.add(0, 0);
     assertEquals("[0, 1, 2, 3, 4, 5]", list1To5.toString());
-    list1To5.add(5, 0);
-    assertEquals("[0, 1, 2, 3, 4, 0, 5]", list1To5.toString());
-    list1To10.add(4, 0);
-    assertEquals("[1, 2, 3, 4, 0, 5, 6, 7, 8, 9, 10]", list1To10.toString());
+    list1To5.add(5, 5);
+    assertEquals("[0, 1, 2, 3, 4, 5, 5]", list1To5.toString());
+    list1To10.add(4, 4);
+    assertEquals("[1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10]", list1To10.toString());
     assertThrows(IndexOutOfBoundsException.class, () -> list1To10.add(100, 0));
   }
 
