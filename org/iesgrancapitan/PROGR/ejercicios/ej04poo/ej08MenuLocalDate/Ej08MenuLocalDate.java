@@ -37,10 +37,10 @@ public class Ej08MenuLocalDate {
         continue;
       }
       switch (option) {
-        case 1 -> newDate();
-        case 2 -> addDays();
-        case 3 -> addMonths();
-        case 4 -> addYears();
+        case 1 -> readDate();
+        case 2 -> addDaysToDate();
+        case 3 -> addMonthsToDate();
+        case 4 -> addYearsToDate();
         case 5 -> compareDates();
         case 6 -> printDate();
       }
@@ -60,7 +60,7 @@ public class Ej08MenuLocalDate {
         "Terminar");
   }
 
-  private static void newDate() {
+  private static void readDate() {
     String dateStr = Util.readStr("Fecha (dd/mm/aaaa)");
     try {
       date = LocalDate.parse(dateStr, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
@@ -70,17 +70,17 @@ public class Ej08MenuLocalDate {
     }
   }
 
-  private static void addDays() {
+  private static void addDaysToDate() {
     int days = Util.readInt("Número de días a añadir a la fecha almacenada");
     date = date.plusDays(days);
   }
 
-  private static void addMonths() {
+  private static void addMonthsToDate() {
     int months = Util.readInt("Número de meses a añadir a la fecha almacenada");
     date = date.plusMonths(months);
   }
 
-  private static void addYears() {
+  private static void addYearsToDate() {
     int years = Util.readInt("Número de años a añadir a la fecha almacenada");
     date = date.plusYears(years);
   }
