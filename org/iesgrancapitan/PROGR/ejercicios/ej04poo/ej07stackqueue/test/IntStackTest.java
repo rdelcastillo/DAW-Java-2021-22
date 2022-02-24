@@ -1,7 +1,7 @@
-package org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej07Stack.test;
+package org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej07stackqueue.test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej07Stack.IntStack;
+import org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej07stackqueue.IntStack;
 import org.junit.jupiter.api.Test;
 
 class IntStackTest {

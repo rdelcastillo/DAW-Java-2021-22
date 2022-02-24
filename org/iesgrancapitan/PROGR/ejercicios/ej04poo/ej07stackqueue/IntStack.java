@@ -1,6 +1,6 @@
-package org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej07Stack;
+package org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej07stackqueue;
 
-import org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej06IntArrayList.IntArrayList;
+import org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej06intarraylist.IntArrayList;
 
 public class IntStack extends IntArrayList {
   

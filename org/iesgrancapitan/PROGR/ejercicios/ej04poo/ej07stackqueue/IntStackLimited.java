@@ -1,4 +1,4 @@
-package org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej07Stack;
+package org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej07stackqueue;
 
 /**
  * Esta clase modela una pila con un tamaño máximo de 10 elementos.
