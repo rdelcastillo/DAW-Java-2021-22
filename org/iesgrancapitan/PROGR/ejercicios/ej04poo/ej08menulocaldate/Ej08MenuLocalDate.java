@@ -22,8 +22,7 @@ import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 
 public class Ej08MenuLocalDate {
-  
-  private static final int EXIT_OPTION = 7;
+
   private static LocalDate date;
 
   public static void main(String[] args) {
@@ -32,7 +31,7 @@ public class Ej08MenuLocalDate {
     int option;
     do {
       option = menu.choose();
-      if (date == null && option > 1 && option != EXIT_OPTION) {
+      if (date == null && option > 1 && option != menu.lastOption()) {
         System.err.println("La fecha no ha sido introducida.\n");
         continue;
       }
@@ -44,7 +43,7 @@ public class Ej08MenuLocalDate {
         case 5 -> compareDates();
         case 6 -> printDate();
       }
-    } while (option != EXIT_OPTION);
+    } while (option != menu.lastOption());
     
     System.out.println("¡Hasta la próxima! ;-)");
   }

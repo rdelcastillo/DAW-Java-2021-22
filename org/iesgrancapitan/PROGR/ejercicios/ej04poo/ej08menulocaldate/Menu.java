@@ -57,7 +57,7 @@ public class Menu {
   private void printTitle() {
     if (title != null && !title.isEmpty()) {
       System.out.println(title);
-      System.out.println("-".repeat(title.length()));
+      System.out.println("=".repeat(title.length()));
     }
   }
 
@@ -75,6 +75,10 @@ public class Menu {
     in.nextLine();  // sacamos el salto de línea del buffer de teclado
     System.out.println();
     return option;
+  }
+  
+  public int lastOption() { 
+    return options.length;
   }
   
   private void printError() {
