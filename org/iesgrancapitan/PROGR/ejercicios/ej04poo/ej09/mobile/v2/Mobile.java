@@ -1,4 +1,4 @@
-package org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej09.mobile;
+package org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej09.mobile.v2;
 
 import org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej09.terminal.Terminal;
 
@@ -16,8 +16,8 @@ import org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej09.terminal.Terminal;
 
 public class Mobile extends Terminal {
   
-  String rate;
-  int priced;
+  private String rate;
+  private double price; 
   
   public Mobile(String number, String rate) {
     super(number);
@@ -25,25 +25,25 @@ public class Mobile extends Terminal {
       throw new IllegalArgumentException("La tarifa indicada es errónea");
     }
     this.rate = rate;
-    this.priced = 0;
+    this.price = 0;
   }
 
   public String getRate() {
     return rate;
   }
   
-  public double price() {
-    return (double) priced / 100;
+  public double getPrice() {
+    return price;
   }
   
   @Override
-  public void call(Terminal other, int time) {
-    super.call(other, time);
-    priced += Rates.price(rate) * time / 60;
+  public void call(Terminal other, int seconds) {
+    super.call(other, seconds);
+    price += Rates.price(rate) * seconds / 60;
   }
 
   @Override
   public String toString() {
-    return super.toString() + " - tarificados " + String.format("%.2f euros", price());
+    return super.toString() + " - tarificados " + String.format("%.2f euros", price);
   }
 }
