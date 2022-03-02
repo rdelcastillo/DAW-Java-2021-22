@@ -19,6 +19,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.FormatStyle;
+import java.time.format.ResolverStyle;
 import java.time.temporal.ChronoUnit;
 
 public class Ej08MenuLocalDate {
@@ -61,10 +62,9 @@ public class Ej08MenuLocalDate {
 
   private static void readDate() {
     String dateStr = Util.readStr("Fecha (dd/mm/aaaa)");
-    try {
+    if (isDateOk(dateStr)) {
       date = LocalDate.parse(dateStr, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-      
-    } catch (DateTimeParseException e) {
+    } else {
       System.err.println("La fecha introducida es errónea.\n");
     }
   }
@@ -86,15 +86,15 @@ public class Ej08MenuLocalDate {
 
   private static void compareDates() {
     String dateStr = Util.readStr("Fecha (dd/mm/aaaa) a comparar con la almacenada");
-    try {
+    if (isDateOk(dateStr)) {
       LocalDate dateToCompare = LocalDate.parse(dateStr, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
       String resultCompare = dateToCompare.equals(date) ? "IGUAL" :
-          dateToCompare.isBefore(dateToCompare) ? "ANTERIOR" : "POSTERIOR";
+          dateToCompare.isBefore(date) ? "ANTERIOR" : "POSTERIOR";
       System.out.println("La fecha introducida es " + resultCompare + " a la almacenada.");
       System.out.println("El número de días entre ambas fechas es de " 
           + Math.abs(ChronoUnit.DAYS.between(dateToCompare, date)) + "\n");
 
-    } catch (DateTimeParseException e) {
+    } else {
       System.err.println("La fecha introducida es errónea.\n");
     }
   }
@@ -102,6 +102,16 @@ public class Ej08MenuLocalDate {
   private static void printDate() {
     System.out.println("La fecha almacenada es " 
         + date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)) + "\n");
+  }
+  
+  private static boolean isDateOk(String dateStr) {
+    try {
+      LocalDate.parse(dateStr, DateTimeFormatter.ofPattern("dd/MM/uuuu")
+          .withResolverStyle(ResolverStyle.STRICT));
+      return true;      
+    } catch (DateTimeParseException e) {
+      return false;
+    }
   }
 
 }
