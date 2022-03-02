@@ -13,29 +13,30 @@ package org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej09.terminal;
 public class Terminal {
   
   private String number;
-  private int talkTime;
+  private int talkTimeInSeconds;
   
   public Terminal(String number) {
     if (!isPhoneNumber(number)) {
       throw new IllegalArgumentException("El número de teléfono es erróneo");
     }
-    this.number = number.replace(" ", "");
+    this.number = number;
+    talkTimeInSeconds = 0;
   }
 
   public String getNumber() {
     return number;
   }
 
-  public int getTalkTime() {
-    return talkTime;
+  public int getTalkTimeInSeconds() {
+    return talkTimeInSeconds;
   }
   
-  public void call(Terminal other, int time) {
-    if (time < 0) {
+  public void call(Terminal other, int seconds) {
+    if (seconds < 0) {
       throw new IllegalArgumentException("El tiempo de conversación no puede ser negativo");
     }
-    talkTime += time;
-    other.talkTime += time;
+    talkTimeInSeconds += seconds;
+    other.talkTimeInSeconds += seconds;
   }
 
   static private boolean isPhoneNumber(String number) {
@@ -51,7 +52,7 @@ public class Terminal {
   
   @Override
   public String toString() {
-    return "Nº " + number + " - " + talkTime + "s de conversación";
+    return "Nº " + number + " - " + talkTimeInSeconds + "s de conversación";
   }
 
 }
