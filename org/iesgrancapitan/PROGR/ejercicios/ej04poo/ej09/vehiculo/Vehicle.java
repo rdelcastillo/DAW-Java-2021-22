@@ -13,6 +13,9 @@ public class Vehicle {
   }
   
   public void travel(int kilometers) {
+    if (kilometers < 0) {
+      throw new IllegalArgumentException("Los kilómetros a recorrer no pueden ser negativos.");
+    }
     this.kilometers += kilometers;
     totalKilometers += kilometers;
   }
