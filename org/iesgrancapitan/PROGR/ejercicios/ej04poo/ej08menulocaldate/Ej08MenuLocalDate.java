@@ -21,6 +21,7 @@ import java.time.format.DateTimeParseException;
 import java.time.format.FormatStyle;
 import java.time.format.ResolverStyle;
 import java.time.temporal.ChronoUnit;
+import org.iesgrancapitan.PROGR.ejercicios.util.Util;
 
 public class Ej08MenuLocalDate {
 
@@ -61,7 +62,7 @@ public class Ej08MenuLocalDate {
   }
 
   private static void readDate() {
-    String dateStr = Util.readStr("Fecha (dd/mm/aaaa)");
+    String dateStr = Util.readStr("Fecha (dd/mm/aaaa)","\n");
     if (isDateOk(dateStr)) {
       date = LocalDate.parse(dateStr, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     } else {
@@ -70,22 +71,22 @@ public class Ej08MenuLocalDate {
   }
 
   private static void addDaysToDate() {
-    int days = Util.readInt("Número de días a añadir a la fecha almacenada");
+    int days = Util.readInt("Número de días a añadir a la fecha almacenada","\n");
     date = date.plusDays(days);
   }
 
   private static void addMonthsToDate() {
-    int months = Util.readInt("Número de meses a añadir a la fecha almacenada");
+    int months = Util.readInt("Número de meses a añadir a la fecha almacenada","\n");
     date = date.plusMonths(months);
   }
 
   private static void addYearsToDate() {
-    int years = Util.readInt("Número de años a añadir a la fecha almacenada");
+    int years = Util.readInt("Número de años a añadir a la fecha almacenada","\n");
     date = date.plusYears(years);
   }
 
   private static void compareDates() {
-    String dateStr = Util.readStr("Fecha (dd/mm/aaaa) a comparar con la almacenada");
+    String dateStr = Util.readStr("Fecha (dd/mm/aaaa) a comparar con la almacenada","\n");
     if (isDateOk(dateStr)) {
       LocalDate dateToCompare = LocalDate.parse(dateStr, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
       String resultCompare = dateToCompare.equals(date) ? "IGUAL" :
