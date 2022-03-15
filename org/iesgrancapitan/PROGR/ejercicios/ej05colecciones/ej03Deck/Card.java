@@ -50,18 +50,13 @@ public class Card implements Comparable<Card> {
 
   @Override
   public String toString() {
-    return number() + " de " + suit;
+    return number() + " de " + suit.name().toLowerCase();
   }
   
   private String number() {
-    String numberStr = String.valueOf(number);
-    switch (number) {
-      case 1 -> numberStr = "As";
-      case 10 -> numberStr = "Sota";
-      case 11 -> numberStr = "Caballo";
-      case 12 -> numberStr = "Rey";
-    }
-    return numberStr;
+    final String[] numbersStr = {"as", "dos", "tres", "cuatro", "cinco", "seis", "siete",
+        "sota", "caballo", "rey"};
+    return (number <= 7) ? numbersStr[number-1] : numbersStr[number-3];
   }
   
   @Override

@@ -3,6 +3,8 @@ package org.iesgrancapitan.PROGR.ejercicios.ej05colecciones.ej03Deck;
 /**
  * Programa que escoge al azar 10 cartas de la baraja española sin repetir ninguna.
  * 
+ * Ejercicio del libro "Aprende Java con Ejercicios", edición 2019.
+ * 
  * @author Rafael del Castillo.
  * 
  */

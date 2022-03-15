@@ -2,7 +2,7 @@ package org.iesgrancapitan.PROGR.ejercicios.ej05colecciones.ej02restrictedaccess
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
+import org.iesgrancapitan.PROGR.ejercicios.util.Util;
 
 /**
  * Ejemplo de control de acceso al área restringida de un programa. 
@@ -13,6 +13,8 @@ import java.util.Scanner;
  * Los nombres de usuario con sus correspondientes contraseñas estarán almacenados en
  * una estructura de la clase HashMap.
  * 
+ * Ejercicio del libro "Aprende Java con Ejercicios", edición 2019.
+ * 
  * @author Rafael del Castillo Gomariz
  *
  */
@@ -20,7 +22,6 @@ import java.util.Scanner;
 public class RestrictedAccess {
   
   public static void main(String[] args) {
-    Scanner in = new Scanner(System.in);
     Map<String,String> passwords = new HashMap<>(Map.of(
         "user1","password1",
         "user2","password2",
@@ -31,19 +32,15 @@ public class RestrictedAccess {
     System.out.println("Acceso al área restringida");
     System.out.println("--------------------------");
     
-    String user = null;
-    String pass = null;
     boolean access = false;
     int attemp = 0;
     
     do {
       attemp++;
       System.out.println("Introduzca los datos de acceso (intento " + attemp + "/3)");
-      System.out.print("Usuario: ");
-      user = in.nextLine();
+      String user = Util.readStr("Usuario");
       if (passwords.containsKey(user)) {
-        System.out.print("Contraseña: ");
-        pass = in.nextLine();
+        String pass = Util.readStr("Contraseña");
         if (passwords.get(user).equals(pass)) {
           System.out.println("\nHa accedido al área restringida");
           access = true;
