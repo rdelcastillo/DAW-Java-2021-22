@@ -21,6 +21,8 @@ import org.iesgrancapitan.PROGR.ejercicios.util.Util;
 
 public class RestrictedAccess {
   
+  private static final int MAX_ATTEMPS = 3;
+
   public static void main(String[] args) {
     Map<String,String> passwords = new HashMap<>(Map.of(
         "user1","password1",
@@ -37,7 +39,7 @@ public class RestrictedAccess {
     
     do {
       attemp++;
-      System.out.println("Introduzca los datos de acceso (intento " + attemp + "/3)");
+      System.out.println("Introduzca los datos de acceso (intento " + attemp + "/" + MAX_ATTEMPS + ")");
       String user = Util.readStr("Usuario");
       if (passwords.containsKey(user)) {
         String pass = Util.readStr("Contraseña");
@@ -50,7 +52,7 @@ public class RestrictedAccess {
       } else {
         System.out.println("Usuario incorrecto\n");
       }
-    } while (!access && attemp < 3);
+    } while (!access && attemp < MAX_ATTEMPS);
     
     if (!access) {
       System.out.println("Lo siento, no tiene acceso al área restringida");

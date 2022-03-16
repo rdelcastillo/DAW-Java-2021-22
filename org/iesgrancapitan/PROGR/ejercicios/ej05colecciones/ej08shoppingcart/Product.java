@@ -13,6 +13,9 @@ package org.iesgrancapitan.PROGR.ejercicios.ej05colecciones.ej08shoppingcart;
 record Product(String name, double price, int units) {
 
   Product {
+    if (name == null || name.isBlank()) {
+      throw new IllegalArgumentException("El nombre del producto no puede estar vacío");
+    }
     if (price < 0) {
       throw new IllegalArgumentException("El precio del producto no puede ser negativo");
     }

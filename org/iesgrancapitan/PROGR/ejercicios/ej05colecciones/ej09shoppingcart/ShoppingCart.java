@@ -51,7 +51,7 @@ public class ShoppingCart extends ArrayList<Product> {
   }
 
   private void addUnits(Product p) {
-    Product product = this.get(indexOf(p));
+    Product product = get(indexOf(p));
     if (product.price() != p.price()) {
       throw new IllegalArgumentException("Conflicto de precios para el producto " + p.name());
     }

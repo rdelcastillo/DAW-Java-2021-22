@@ -38,6 +38,8 @@ public class Card implements Comparable<Card> {
     if (!isSuitOk(suit)) {
       throw new IllegalArgumentException(suit + " no es un palo de carta válido"); 
     }
+    this.suit = Suit.valueOf(suit);
+    this.number = number;
   }
 
   public Suit getSuit() {
@@ -50,10 +52,10 @@ public class Card implements Comparable<Card> {
 
   @Override
   public String toString() {
-    return number() + " de " + suit.name().toLowerCase();
+    return numberToStr() + " de " + suit.name().toLowerCase();
   }
   
-  private String number() {
+  public String numberToStr() {
     final String[] numbersStr = {"as", "dos", "tres", "cuatro", "cinco", "seis", "siete",
         "sota", "caballo", "rey"};
     return (number <= 7) ? numbersStr[number-1] : numbersStr[number-3];
