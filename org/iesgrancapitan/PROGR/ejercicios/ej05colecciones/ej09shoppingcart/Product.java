@@ -42,6 +42,7 @@ class Product {
   }
 
   void setUnits(int units) {
+    trowExceptionIfNegativeUnits(units);
     this.units = units;
   }
 
@@ -83,11 +84,15 @@ class Product {
     if (price < 0) {
       throw new IllegalArgumentException("El precio del producto no puede ser negativo");
     }
-    if (units <= 0) {
-      throw new IllegalArgumentException("Las unidades del producto tienen que ser mayores que cero");
-    }
     if (name == null || name.isBlank()) {
       throw new IllegalArgumentException("El nombre del producto no puede estar vacío");
+    }
+    trowExceptionIfNegativeUnits(units);
+  }
+
+  private void trowExceptionIfNegativeUnits(int units) {
+    if (units <= 0) {
+      throw new IllegalArgumentException("Las unidades del producto tienen que ser mayores que cero");
     }
   }
   
