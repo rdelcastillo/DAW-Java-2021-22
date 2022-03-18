@@ -1,5 +1,7 @@
 package org.iesgrancapitan.PROGR.ejercicios.ej05colecciones.ej09shoppingcart;
 
+import java.util.Objects;
+
 /**
  * Mejora de la versión anterior para el carrito de tal forma que al intentar agregar 
  * un elemento al carrito, se compruebe si ya existe el producto y, en tal caso, se
@@ -45,6 +47,11 @@ class Product {
     trowExceptionIfNegativeUnits(units);
     this.units = units;
   }
+  
+  void addUnits(int units) {
+    trowExceptionIfNegativeUnits(units);
+    this.units += units;
+  }
 
   @Override
   public String toString() {
@@ -54,13 +61,10 @@ class Product {
   double totalPrice() {
     return units * price;
   }
-
+  
   @Override
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((name == null) ? 0 : name.hashCode());
-    return result;
+    return Objects.hash(name);
   }
 
   @Override
@@ -72,14 +76,9 @@ class Product {
     if (getClass() != obj.getClass())
       return false;
     Product other = (Product) obj;
-    if (name == null) {
-      if (other.name != null)
-        return false;
-    } else if (!name.equals(other.name))
-      return false;
-    return true;
+    return Objects.equals(name, other.name);
   }
-  
+
   private void throwExceptionIfIllegalArgument(String name, double price, int units) {
     if (price < 0) {
       throw new IllegalArgumentException("El precio del producto no puede ser negativo");

@@ -61,6 +61,7 @@ public class CurrentAccount {
     for (String m: movements) {
       movementsStr += m + "\n";
     }
+    movementsStr = movementsStr.substring(0, movementsStr.length()-1);  // quito el \n final
     return movementsStr;
   }
 

@@ -43,7 +43,7 @@ public class ShoppingCart extends ArrayList<Product> {
   
   @Override
   public boolean add(Product p) {
-    if (this.contains(p)) {
+    if (contains(p)) {
       addUnits(p);
       return true;
     }
@@ -55,7 +55,7 @@ public class ShoppingCart extends ArrayList<Product> {
     if (product.price() != p.price()) {
       throw new IllegalArgumentException("Conflicto de precios para el producto " + p.name());
     }
-    product.setUnits(product.units() + p.units()); 
+    product.addUnits(p.units()); 
   }
 
 }
