@@ -2,6 +2,13 @@ package org.iesgrancapitan.PROGR.examenes.trimestre2poo.cashregister;
 
 import java.time.LocalDateTime;
 
+/**
+ * Test del examen Programación 2º trimestre curso 2021/22.
+ * 
+ * @author Rafael del Castillo Gomariz
+ *
+ */
+
 public class TestCashRegister {
 
   public static void main(String[] args) {

@@ -18,10 +18,8 @@ Estas operaciones se implementarán en los siguientes métodos:
 
 Los movimientos de caja se guardarán en una colección y serán objetos de la clase **Movement**. Esta clase tendrá los siguientes atributos:
 
-- private static int lastId
-  - último número de movimiento asignado
 - int id
-  - identificador numérico del movimiento, será el último asignado incrementado en 1
+  - identificador numérico del movimiento, será el último asignado a la Caja a la que pertenece incrementado en 1
 - LocalDateTime dateTime
   - fecha y hora del movimiento
 - double amount

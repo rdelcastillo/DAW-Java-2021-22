@@ -6,6 +6,15 @@ import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase Caja Registradora.
+ * 
+ * Examen Programación 2º trimestre curso 2021/22.
+ * 
+ * @author Rafael del Castillo Gomariz
+ *
+ */
+
 public class CashRegister {
   
   private List<Movement> movements = new ArrayList<>();
@@ -21,14 +30,10 @@ public class CashRegister {
   
   public void deleteLast() {
     movements.remove(movements.size()-1);
-    Movement.setLastId(lastMovement().getId());
   }
 
   private void throwExceptionIfDateTimeIsWrong(LocalDateTime dateTime) {
-    if (movements.size() == 0) {
-      return;
-    }
-    if (dateTime.isBefore(lastMovement().getDateTime())) {
+    if (!movements.isEmpty() && dateTime.isBefore(lastMovement().getDateTime())) {
       throw new IllegalArgumentException("La fecha del movimiento de caja que se quiere añadir "
           + "es anterior al último movimiento (" + lastMovement() + ")");
     }
@@ -60,10 +65,9 @@ public class CashRegister {
 
   private String movementToStr(Movement m, double balance) {
     String formatAmount = m.getAmount() >= 0 ? "%7.2f        ": "%15.2f";
-    return String.format("%6d %s %s " + formatAmount + " %7.2f %s", 
+    return String.format("%6d %s " + formatAmount + " %7.2f %s", 
         m.getId(), 
-        m.getDateTime().format(DateTimeFormatter.ofPattern("dd/MM/uuuu")),
-        m.getDateTime().format(DateTimeFormatter.ofPattern("hh:mm")),
+        m.getDateTime().format(DateTimeFormatter.ofPattern("dd/MM/uuuu hh:mm")),
         Math.abs(m.getAmount()), balance, m.getConcept());
   }
   

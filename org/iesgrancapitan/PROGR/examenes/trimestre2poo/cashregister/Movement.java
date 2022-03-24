@@ -2,6 +2,15 @@ package org.iesgrancapitan.PROGR.examenes.trimestre2poo.cashregister;
 
 import java.time.LocalDateTime;
 
+/**
+ * Clase Movimiento.
+ * 
+ * Examen Programación 2º trimestre curso 2021/22.
+ * 
+ * @author Rafael del Castillo Gomariz
+ *
+ */
+
 class Movement {
   
   private static int lastId = 0;
