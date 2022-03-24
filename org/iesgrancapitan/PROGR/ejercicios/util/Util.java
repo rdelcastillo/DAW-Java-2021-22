@@ -37,8 +37,20 @@ public class Util {
     return n;
   }
   
+  public static double readDouble(String prompt) {
+    System.out.print(prompt + ": ");
+    double n = in.nextDouble();
+    in.nextLine();  // sacamos \n del buffer de teclado
+    return n;
+  }
+  
+  public static double readDouble(String prompt, String end) {
+    double n = readDouble(prompt);
+    System.out.print(end);
+    return n;
+  }
+
   public static int randomInt(int min, int max) {
     return min + (int) (Math.random() * (max-min+1));
   }
-
 }
