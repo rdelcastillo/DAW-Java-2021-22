@@ -8,6 +8,7 @@ package org.iesgrancapitan.PROGR.ejercicios.util;
  */
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
@@ -70,8 +71,13 @@ public class Menu {
   }
 
   private int readOption() {
+    int option;
     System.out.print("Introduzca una opción (1-" + options.length + "): ");
-    int option = in.nextInt();
+    try {
+      option = in.nextInt();
+    } catch (InputMismatchException e) {
+      option = 0;
+    }
     in.nextLine();  // sacamos el salto de línea del buffer de teclado
     System.out.println();
     return option;
