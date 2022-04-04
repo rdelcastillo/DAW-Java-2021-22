@@ -1,6 +1,6 @@
 package org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej09.vehiculo;
 
-import org.iesgrancapitan.PROGR.ejercicios.ej04poo.ej08menulocaldate.Menu;
+import org.iesgrancapitan.PROGR.ejercicios.util.Menu;
 
 public class TestVehicle {
   
