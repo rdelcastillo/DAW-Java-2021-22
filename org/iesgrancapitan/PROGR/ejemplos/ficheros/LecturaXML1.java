@@ -52,23 +52,23 @@ public class LecturaXML1 {
               .normalize();         // Elimina nodos vacíos y combina adyacentes en caso de que los hubiera
 
       // Accedemos a la lista de nodos Artículo
-      NodeList nodosArticulo = document.getElementsByTagName("Artículo");
+      NodeList nodes = document.getElementsByTagName("Artículo");
 
       // Recorremos los nodos Artículo 
-      for (int i = 0; i < nodosArticulo.getLength(); i++) {
+      for (int i = 0; i < nodes.getLength(); i++) {
 
         // Nodo Artículo 
-        Node nodo = nodosArticulo.item(i);
-        Element articulo = (Element) nodo;
+        Node node = nodes.item(i);
+        Element articulo = (Element) node;
 
         // Campos del artículo (teniendo en cuenta que conocemos la estructura y etiquetas utilizadas)
-        int codigo = Integer.parseInt(articulo.getAttribute("código"));
-        String descripcion = articulo.getElementsByTagName("Descripción").item(0).getTextContent();
-        double precio = Double.parseDouble(articulo.getElementsByTagName("Precio").item(0).getTextContent());
-        int unidades = Integer.parseInt(articulo.getElementsByTagName("Unidades").item(0).getTextContent());
+        int code = Integer.parseInt(articulo.getAttribute("código"));
+        String description = articulo.getElementsByTagName("Descripción").item(0).getTextContent();
+        double price = Double.parseDouble(articulo.getElementsByTagName("Precio").item(0).getTextContent());
+        int units = Integer.parseInt(articulo.getElementsByTagName("Unidades").item(0).getTextContent());
 
         // Añadimos a la lista
-        articles.add(new Article(codigo, descripcion, precio, unidades));
+        articles.add(new Article(code, description, price, units));
       }
       System.out.println(articles);
       

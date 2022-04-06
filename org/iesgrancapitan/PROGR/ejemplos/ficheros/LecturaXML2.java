@@ -41,29 +41,29 @@ public class LecturaXML2 {
     try {
       Document document = DocumentBuilderFactory.newInstance()  // factory
           .newDocumentBuilder()                                 // builder
-          .parse(new File("agenda.xml"));
+          .parse(new File("almacen.xml"));
       
-      Element raiz = document.getDocumentElement();
-      raiz.normalize();
+      Element root = document.getDocumentElement();
+      root.normalize();
 
       // Accedemos a la lista de nodos Artículo
-      NodeList nodosArticulo = raiz.getChildNodes();
+      NodeList nodes = root.getChildNodes();
 
       // Recorremos los nodos Artículo 
-      for (int i = 0; i < nodosArticulo.getLength(); i++) {
-        Node nodo = nodosArticulo.item(i);  // Nodo Artículo
+      for (int i = 0; i < nodes.getLength(); i++) {
+        Node node = nodes.item(i);  // Nodo Artículo
 
-        if (nodo.getNodeType() == Node.ELEMENT_NODE) { // Compruebo si el nodo es un elemento
-          imprimeNodo(nodo);
+        if (node.getNodeType() == Node.ELEMENT_NODE) { // Compruebo si el nodo es un elemento
+          printNode(node);
 
           // Obtengo sus hijos
-          NodeList hijos = nodo.getChildNodes();
+          NodeList childs = node.getChildNodes();
           
-          for (int j = 0; j < hijos.getLength(); j++) { // Recorro sus hijos
-            Node hijo = hijos.item(j);  // Obtengo al hijo actual
+          for (int j = 0; j < childs.getLength(); j++) { // Recorro sus hijos
+            Node child = childs.item(j);  // Obtengo al hijo actual
 
-            if (hijo.getNodeType() == Node.ELEMENT_NODE) {
-              imprimeElemento((Element) hijo);
+            if (child.getNodeType() == Node.ELEMENT_NODE) {
+              printElement(child);
             }
 
           }
@@ -82,18 +82,18 @@ public class LecturaXML2 {
 
   }
 
-  private static void imprimeNodo(Node nodo) {
-    System.out.print(nodo.getNodeName());
-    if (nodo.hasAttributes()) {
-      for (int i = 0; i < nodo.getAttributes().getLength(); i++) {
-        System.out.println(" " + nodo.getAttributes().item(i));
+  private static void printNode(Node node) {
+    System.out.print(node.getNodeName());
+    if (node.hasAttributes()) {
+      for (int i = 0; i < node.getAttributes().getLength(); i++) {
+        System.out.println(" " + node.getAttributes().item(i));
       }
     }
     System.out.println();
   }
 
-  private static void imprimeElemento(Node nodo) {
-    Element e = (Element) nodo; // Lo transformo a Element
+  private static void printElement(Node node) {
+    Element e = (Element) node; // Lo transformo a Element
     System.out.println(e.getTagName());
     System.out.println(e.getTextContent());
   }

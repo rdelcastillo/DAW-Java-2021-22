@@ -60,14 +60,14 @@ public class EscrituraXML {
       Document document = builder.newDocument(); // este objeto hará todo el trabajo
 
       // Nodo raíz 
-      Element raiz = document.createElement("Almacén");
-      document.appendChild(raiz);
+      Element root = document.createElement("Almacén");
+      document.appendChild(root);
 
       // Recorremos lista de artículos
       for (Article article : articles) {
         // Nodo Artículo (contiene los elementos)
         Element elementArt = document.createElement("Artículo");
-        raiz.appendChild(elementArt);
+        root.appendChild(elementArt);
 
         // El código es un atributo del nodo Artículo
         Attr attrCod = document.createAttribute("código");
