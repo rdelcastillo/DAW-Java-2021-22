@@ -94,7 +94,6 @@ public class LecturaXML2 {
 
   private static void printElement(Node node) {
     Element e = (Element) node; // Lo transformo a Element
-    System.out.println(e.getTagName());
-    System.out.println(e.getTextContent());
+    System.out.println(e.getTagName() + ": " + e.getTextContent());
   }
 }

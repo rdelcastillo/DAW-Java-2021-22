@@ -96,6 +96,7 @@ public class EscrituraXML {
       DOMSource source = new DOMSource(document);
       StreamResult result = new StreamResult(new FileWriter("almacen.xml"));
       transformer.transform(source, result);
+      System.out.println("Creado almacen.xml");
 
     } catch (ParserConfigurationException e) {
       e.printStackTrace();
