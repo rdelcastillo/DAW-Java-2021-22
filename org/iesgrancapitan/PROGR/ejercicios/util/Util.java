@@ -49,6 +49,22 @@ public class Util {
     System.out.print(end);
     return n;
   }
+  
+  public static boolean confirm(String prompt) {
+    String resp;
+    for (;;) {
+      resp = Util.readStr(prompt).toUpperCase();
+      if (resp.equals("S") || resp.equals("N")) {
+        break;
+      }
+      System.out.println("Respuesta incorrecta, pulse S o N y después Intro");
+    }
+    return resp.equals("S");
+  }
+  
+  public static boolean confirm() {
+    return confirm("¿Está seguro/a? (S/N)");
+  }
 
   public static int randomInt(int min, int max) {
     return min + (int) (Math.random() * (max-min+1));
