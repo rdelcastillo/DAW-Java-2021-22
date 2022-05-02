@@ -1,10 +1,12 @@
-package org.iesgrancapitan.PROGR.ejercicios.ej07ficheros.ej03currentaccount;
+package org.iesgrancapitan.PROGR.ejercicios.ej07ficheros.ej08currentaccount;
 
-import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +17,9 @@ import java.util.List;
  * transferencias (tanto enviadas como recibidas).
  * 
  * Además añadimos un método para guardar todos los datos de la cuenta bancaria (número, saldo 
- * y movimientos) en un fichero elegido por el cliente, y un nuevo constructor que reciba como 
- * parámetro un fichero como el anterior y cree el objeto con esos datos. 
+ * y movimientos) como objeto en un fichero cuyo nombre será la cuenta cuenta corriente, y un 
+ * nuevo constructor que reciba como parámetro el fichero como el anterior y cree el objeto con 
+ * esos datos. 
  * 
  * Ejercicio del libro "Aprende Java con Ejercicios", edición 2019.
  * 
@@ -24,8 +27,10 @@ import java.util.List;
  *
  */
 
-public class CurrentAccount {
+public class CurrentAccount implements Serializable {
   
+  private static final long serialVersionUID = 1L;
+
   private static List<Long> accounts = new ArrayList<Long>();
   
   private long number;
@@ -118,31 +123,29 @@ public class CurrentAccount {
     return String.format("%.2f €", money);
   }
   
-  // métodos añadidos en este ejercicio
+  // Métodos añadidos en este ejercicio
   
-  public void save(String fileName) throws IOException {
-    BufferedWriter file = Files.newBufferedWriter(Paths.get(fileName), Charset.defaultCharset());
-      
-    file.write(number + ""); file.newLine();
-    file.write(balance + ""); file.newLine();
-    for (String m: movements) {
-      file.write(m);
-      file.newLine();
-    }
+  public void save() throws IOException {
+    String fileName = String.valueOf(number) + ".obj";
+    ObjectOutputStream file = new ObjectOutputStream(new FileOutputStream(fileName));
+    file.writeObject(this);
     file.close();
   }
   
-  public CurrentAccount(String fileName) throws IOException, CurrentAccountParseErrorException {
-    List<String> fileLines = Files.readAllLines(Paths.get(fileName)); 
-    try {
-      number = Long.parseLong(fileLines.get(0));
-      balance = Double.parseDouble(fileLines.get(1));
-      movements = fileLines.subList(2, fileLines.size());
-      
-    } catch (NumberFormatException e) {
-      throw new CurrentAccountParseErrorException("Problema al analizar " + fileName + ": " + e.getMessage());
-    } catch (IndexOutOfBoundsException e) {
-      throw new CurrentAccountParseErrorException("El fichero " + fileName + " está incompleto: " + e.getMessage());
+  public CurrentAccount(String fileName) throws FileNotFoundException, IOException, ClassNotFoundException {
+    // Creamos un objeto con la información del fichero
+    ObjectInputStream file = new ObjectInputStream(new FileInputStream(fileName));
+    CurrentAccount obj = (CurrentAccount) file.readObject();
+    file.close();
+
+    if (accounts.contains(obj.number)) {  // cuenta duplicada
+      throw new IllegalArgumentException("Ya existe ese número de cuenta");
     }
+    
+    // Registramos el número de cuenta y copiamos los datos al objeto actual
+    accounts.add(obj.number);
+    this.number = obj.number;
+    this.balance = obj.balance;
+    this.movements = obj.movements;
   }
 }

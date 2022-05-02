@@ -1,9 +1,9 @@
 package org.iesgrancapitan.PROGR.ejercicios.ej07ficheros.ej03currentaccount;
 
 @SuppressWarnings("serial")
-public class ParseErrorCurrentAccountException extends Exception {
+public class CurrentAccountParseErrorException extends Exception {
 
-  public ParseErrorCurrentAccountException(String message) {
+  public CurrentAccountParseErrorException(String message) {
     super(message);
   }
   

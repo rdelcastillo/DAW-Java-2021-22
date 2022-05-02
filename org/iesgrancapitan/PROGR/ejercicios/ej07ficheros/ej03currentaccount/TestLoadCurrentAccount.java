@@ -16,7 +16,7 @@ public class TestLoadCurrentAccount {
     } catch (IOException e) {
       System.err.println("Ha habido algún error al abrir los ficheros de cuentas");
       e.printStackTrace();
-    } catch (ParseErrorCurrentAccountException e) {
+    } catch (CurrentAccountParseErrorException e) {
       System.err.println("Algún fichero tiene un formato incorrecto");
       e.printStackTrace();
     } 
